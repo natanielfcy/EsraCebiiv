@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import postRoutes from "./routes/posts.js"
+import contactRoutes from "./routes/contact.js"
 
 
 const app = express();
@@ -20,7 +21,8 @@ app.get("/", (req,res) => {
         message: "ismail server"
     });
 })
-app.use("/posts", postRoutes)
+app.use("/posts", postRoutes);
+app.use("/contact", contactRoutes);
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL,{
