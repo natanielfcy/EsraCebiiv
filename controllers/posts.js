@@ -32,22 +32,6 @@ export const deletePost = async (req, res) => {
         })
     }
 }
-
-export const updatePost = async (req, res) => {
-    const { id: _id } = req.params;
-    const post = req.body;
-    try {
-        const updatedPost = await Post.findByIdAndUpdate(_id, post, { new: true });
-        res.json(updatedPost);
-
-     
-    } catch (error) {
-        res.status(409).json({
-            message: error.message,
-        })
-    }
-}
-
 export const getSinglePost = async (req, res) => {
 
     try {
